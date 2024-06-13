@@ -9,8 +9,13 @@
      }
  **/
 
-function main(input) {
-  const rgb = input.text;
+/** @typedef {import("./types").State} State */
+
+/**
+ * @param state {State}
+ */
+function main(state) {
+  const rgb = state.text;
 
   const parts = rgb.split(/[\s,]/).filter((part) => part !== "");
   if (parts < 3) {
@@ -22,5 +27,5 @@ function main(input) {
   const hexValue = [r, g, b].map((s) => parseInt(s).toString(16)).join("");
   const hex = `#${hexValue}`;
 
-  input.text = hex;
+  state.text = hex;
 }
